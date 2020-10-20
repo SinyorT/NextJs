@@ -10,9 +10,12 @@ class MovieList extends React.Component {
         this.state={
             count: 0
         }
+
+        //ilk yol normal funtion oldugu zaman
+        // this.increment=this.increment.bind(this)
     }
 
-    increment = () => {
+    increment () {
        //const count=this.state.count
        const {count}=this.state
 
@@ -36,7 +39,8 @@ class MovieList extends React.Component {
         return (
             <React.Fragment>
                 <div>
-                    <button onClick={this.increment} className="btn btn-primary">Increment Number</button>
+                    {/* 2ci yol burada click de function yazmaq */}
+                    <button onClick={()=>this.increment()} className="btn btn-primary">Increment Number</button>
                     <button onClick={this.decrement} className="btn btn-primary">Decrement Number</button>
                     <h1>{this.state.count}</h1>
                 </div>
