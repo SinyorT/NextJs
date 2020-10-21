@@ -1,12 +1,27 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import Head from 'next/head'
 import Navbar from '../components/navbar'
 import SideMenu from '../components/sideMenu'
 import Carousel from '../components/carousel'
 import MovieList from '../components/movieList'
 import Footer from '../components/footer'
-const Home = () => (
-  <div>
+
+
+const Home = () => {
+  const [count, setCount] = useState(0)
+
+  const increment = () => {
+    const newCount = count + 1
+    setCount(newCount)
+  }
+
+  const decrement = () => {
+    const newCount = count - 1
+    setCount(newCount)
+  }
+
+
+  return (<div>
     <Head>
       <title>Home</title>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -18,6 +33,8 @@ const Home = () => (
     <Navbar />
     <div className="home-page">
       <div className="container">
+      <button onClick={increment} className="btn btn-primary">Increment Number</button>
+                <button onClick={decrement} className="btn btn-primary">Decrement Number</button>
         <div className="row">
           <div className="col-lg-3">
             <SideMenu />
@@ -37,9 +54,10 @@ const Home = () => (
         .home-page{
           padding-top:80px;
         }
-    `} 
-     </style>
-  </div>
-)
+    `}
+    </style>
+  </div>)
+}
+
 
 export default Home
