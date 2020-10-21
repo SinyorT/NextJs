@@ -2,8 +2,12 @@
 import { useState } from 'react'
 
 const SideMenu = () => {
-    const [count, setCount] = useState(0)
-
+    // buradaki isimleri deyishe biliyorsun
+    const [count, setCount] = useState(0)  
+    //ashagidaki kimi yaza biliirik 
+    // const stateArray=useState(0)
+    // const count=stateArray[0]
+    // const setCount=stateArray[1]
 
     const increment = () => {
          const newCount=count+1
