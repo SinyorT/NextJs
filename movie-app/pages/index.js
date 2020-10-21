@@ -43,7 +43,7 @@ const Home = () => {
           <div className="col-lg-9">
             <Carousel />
             <div className="row">
-              <MovieList count={count}/>
+              <MovieList whateverIwant={count}/>
             </div>
           </div>
         </div>

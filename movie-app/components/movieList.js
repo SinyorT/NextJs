@@ -5,7 +5,7 @@ class MovieList extends React.Component {
         return (
             <React.Fragment>
                 <div>
-                    <h1>{this.props.count}</h1>
+                    <h1>{this.props.whateverIwant}</h1>
                 </div>
                 <div className="col-lg-4 col-md-6 mb-4">
                     <div className="card h-100">
