@@ -37,13 +37,13 @@ const Home = () => {
                 <button onClick={decrement} className="btn btn-primary">Decrement Number</button>
         <div className="row">
           <div className="col-lg-3">
-            <SideMenu />
+            <SideMenu count={count}/>
           </div>
 
           <div className="col-lg-9">
             <Carousel />
             <div className="row">
-              <MovieList />
+              <MovieList count={count}/>
             </div>
           </div>
         </div>
