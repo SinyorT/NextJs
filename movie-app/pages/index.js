@@ -37,7 +37,11 @@ const Home = () => {
                 <button onClick={decrement} className="btn btn-primary">Decrement Number</button>
         <div className="row">
           <div className="col-lg-3">
-            <SideMenu count={count}/>
+            <SideMenu 
+            appName={"Movie DB"}
+            clickHandler={()=>{console.log("Hello World")}}
+            count={count}
+            />
           </div>
 
           <div className="col-lg-9">
