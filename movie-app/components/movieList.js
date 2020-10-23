@@ -1,8 +1,8 @@
 import React from 'react'
 class MovieList extends React.Component {
 
-    renderMovies() {
-        const { movies } = this.props
+    renderMovies(movies) {
+        
         return movies.map(movie => (
             <div className="col-lg-4 col-md-6 mb-4">
                 <div className="card h-100">
@@ -24,12 +24,10 @@ class MovieList extends React.Component {
     }
 
     render() {
-
-
-
+        const { movies } = this.props
         return (
             <React.Fragment>
-                { this.renderMovies() }
+                { this.renderMovies(movies)}
             </React.Fragment>
         )
     }
