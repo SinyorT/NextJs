@@ -31,5 +31,13 @@ const MOVIE_DATA = [
   
 
   export const getMovies= ()=>{
-      return MOVIE_DATA;
+    //create async functionality
+    //return MOVIE_DATA;
+
+    //create sync functionality
+    return new Promise((resolve,reject)=>{
+      setTimeout(()=>{
+        resolve(MOVIE_DATA)
+      },2000)
+    })
   }
