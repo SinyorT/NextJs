@@ -1,7 +1,15 @@
 import '../styles/globals.css'
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import App from 'next/app'
+class MovieApp extends App {
+    render(){
+      //Component holds page you are navigating to
+      const {Component} =this.props
+
+      return(
+        <Component />
+      )
+    }
 }
 
-export default MyApp
+export default MovieApp

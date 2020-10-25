@@ -28,7 +28,7 @@ const Home = (props) => {
             <div className="col-lg-9">
               <Carousel />
               <div className="row">
-                <MovieList movies={props.movies} />
+                <MovieList movies={props.movies || [] } />
               </div>
             </div>
           </div>

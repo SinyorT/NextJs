@@ -2,6 +2,11 @@
 import React from 'react'
 
 //functional compponent  -arrow function  ddaha fazla kullanishli
+//// WHEN TO USE:
+// 1. for smaller components
+// 2. reusable components
+// 3. presentional components , patialy right, we can use HOOKS and specify state
+
 // const About = () =>{
 //     const message='Hello World'
 //     return(
@@ -22,8 +27,6 @@ import React from 'react'
 // }
 
 class About extends React.Component {
-
-
     render(){
         return(
             <h1>Hello I am class component</h1>
