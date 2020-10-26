@@ -8,6 +8,7 @@ class MovieApp extends App {
   // TODO : execute here getInitialProps and pass  this data to your page
 
   static async getInitialProps(appContext) {
+    //Executing getInitialProps of page you are navigated to
     const appProps = await App.getInitialProps(appContext)
     return { ...appProps }
   }
