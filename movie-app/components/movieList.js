@@ -10,10 +10,7 @@ class MovieList extends React.Component {
 
         return text;
     }
-
-
     renderMovies(movies) {
-
         return movies.map(movie => (
             <div key={movie.Id} className="col-lg-4 col-md-6 mb-4">
                 <div className="card h-100">

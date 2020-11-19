@@ -6,6 +6,9 @@ import MovieList from '../components/movieList'
 import { getMovies } from '../actions'
 
 const Home = (props) => {
+
+  //console.log(JSON.stringify(props.images));
+  const {images} =props
   return (
     <div>
       <div className="home-page">
@@ -17,7 +20,7 @@ const Home = (props) => {
               />
             </div>
             <div className="col-lg-9">
-              <Carousel />
+              <Carousel  images={images}/>
               <div className="row">
                 <MovieList movies={props.movies || [] } />
               </div>
@@ -32,8 +35,16 @@ const Home = (props) => {
 
 Home.getInitialProps = async () => {
   const movies = await getMovies()
+  const images= movies.map(movie=>({
+    id:`image-${movie.id}`,
+    image:movie.image
+  }))
+
+
+
   return {
-    movies
+    movies,
+    images
   }
 }
 
