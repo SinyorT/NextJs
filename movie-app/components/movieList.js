@@ -7,9 +7,9 @@ class MovieList extends React.Component {
         if (text && text.length > maxLength) {
             return text.substring(0, maxLength) + '...';
         }
-
         return text;
     }
+    
     renderMovies(movies) {
         return movies.map(movie => (
             <div key={movie.Id} className="col-lg-4 col-md-6 mb-4">
