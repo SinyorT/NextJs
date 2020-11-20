@@ -1,5 +1,5 @@
-
-const Modal = () => {
+import MovieCreateForm from './movieCreateForm'
+const Modal = (props) => {
 
     let closeButton = null
 
@@ -7,9 +7,6 @@ const Modal = () => {
         alert("Submitting Modal")
         closeButton.click()
     }
-
-
-
     return (
         <div>
             <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -26,7 +23,7 @@ const Modal = () => {
                             </button>
                         </div>
                         <div className="modal-body">
-
+                            {props.children}
                         </div>
                         <div className="modal-footer">
                             <button ref={(ele) => { closeButton = ele }} type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
