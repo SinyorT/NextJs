@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react'
-const MovieCreateForm = () => {
-
+const MovieCreateForm = (props) => { 
+    //fix uncontrolled data
     const [form, setForm] = useState({
         name: 'Some Movie',
         description: 'Some Description'
@@ -13,7 +13,7 @@ const MovieCreateForm = () => {
 
         setForm({
             ...form,
-            genre: value.toString()
+            [name]:  target.value
         })
 
     }
@@ -33,6 +33,10 @@ const MovieCreateForm = () => {
             genre: value.toString()
         })
     }
+
+    const submitForm = () => {
+        props.handleFormSubmit({...form})
+      }
 
 
     return (
@@ -128,6 +132,7 @@ const MovieCreateForm = () => {
                     <option>action</option>
                 </select>
             </div>
+            <button onClick={submitForm} type="button" className="btn btn-primary">Create</button>
         </form>
     )
 };
