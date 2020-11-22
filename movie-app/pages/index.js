@@ -8,22 +8,31 @@ import { getMovies, getCategories } from '../actions'
 const Home = (props) => {
 
   //console.log(JSON.stringify(props.images));
-  const {images,categories,movies} =props
+  const { images, categories, movies } = props
+  const [filter, setFilter] = useState('')
+
+  const changeCategory = category => {
+    setFilter(category)
+  }
+
   return (
     <div>
       <div className="home-page">
         <div className="container">
           <div className="row">
             <div className="col-lg-3">
-              <SideMenu 
-              categories={categories}
-              appName={"MovieDB"}
+              <SideMenu
+                changeCategory={changeCategory}
+                activeCategory={filter}
+                categories={categories}
+                appName={"MovieDB"}
               />
             </div>
             <div className="col-lg-9">
-              <Carousel  images={images}/>
+              <Carousel images={images} />
+              <h1>Displaying {filter} movies</h1>
               <div className="row">
-                <MovieList movies={movies || [] } />
+                <MovieList movies={movies || []} />
               </div>
             </div>
           </div>
@@ -38,10 +47,10 @@ Home.getInitialProps = async () => {
   const movies = await getMovies()//array movie list
   const categories = await getCategories()
 
-  const images= movies.map(movie=>({
-    id:`image-${movie.id}`,
-    url:movie.cover,
-    title:movie.name
+  const images = movies.map(movie => ({
+    id: `image-${movie.id}`,
+    url: movie.cover,
+    title: movie.name
   }))
 
 
@@ -109,7 +118,7 @@ Home.getInitialProps = async () => {
 //             <div className="col-lg-9">
 //               <Carousel />
 //               <div className="row">
-                
+
 //                 <MovieList movies={movies} />
 //               </div>
 //             </div>

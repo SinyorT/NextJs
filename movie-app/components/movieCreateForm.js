@@ -1,15 +1,23 @@
 import React from 'react';
-import { useState } from 'react'
-const MovieCreateForm = (props) => { 
-    //fix uncontrolled data
-    const [form, setForm] = useState({
+import { useState, useEffect } from 'react'
+const MovieCreateForm = (props) => {
+
+
+    const [isInitialDataLoaded, setInitialDataLoaded] = useState(false)
+
+    const defaulData = {
         name: '',
         description: '',
         rating: '',
         image: '',
         cover: '',
         longDesc: '',
-    })
+    }
+
+    const formData = props.initialData ? { ...props.initialData } : defaulData
+
+    //fix uncontrolled data
+    const [form, setForm] = useState(formData)
 
     const handleChange = (event) => {
         const target = event.target
@@ -17,7 +25,7 @@ const MovieCreateForm = (props) => {
 
         setForm({
             ...form,
-            [name]:  target.value
+            [name]: target.value
         })
 
     }
@@ -39,8 +47,8 @@ const MovieCreateForm = (props) => {
     }
 
     const submitForm = () => {
-        props.handleFormSubmit({...form})
-      }
+        props.handleFormSubmit({ ...form })
+    }
 
 
     return (
@@ -136,7 +144,12 @@ const MovieCreateForm = (props) => {
                     <option>action</option>
                 </select>
             </div>
-            <button onClick={submitForm} type="button" className="btn btn-primary">Create</button>
+            <button
+                onClick={submitForm}
+                type="button"
+                className="btn btn-primary">
+                {props.submitButton || 'Create'}
+            </button>
         </form>
     )
 };

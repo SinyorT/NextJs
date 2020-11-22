@@ -32,9 +32,10 @@ const handleCreateMovie = (movie) => {
                 {
                     categories.map(category => (
                         <a 
+                        onClick={() => props.changeCategory(category.name)}
                         key={category.id}
                         href="#" 
-                        className="list-group-item">{category.name}</a>
+                        className={`list-group-item ${props.activeCategory === category.name ? 'active' : ''}`}>{category.name}</a>
                     ))}
             </div>
             <div>

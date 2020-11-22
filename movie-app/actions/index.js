@@ -5,8 +5,8 @@ const MOVIE_DATA = []
 
 const CATEGORY_DATA = [
   { id: 'c-1', name: 'drama' },
-  { id: 'c-2', name: 'aciion' },
-  { id: 'c-3', name: 'adventeru' },
+  { id: 'c-2', name: 'action' },
+  { id: 'c-3', name: 'adventure' },
   { id: 'c-4', name: 'historical' }
 ]
 
@@ -48,6 +48,11 @@ export const createMovie = (movie) => {
   //     // reject('Cannot fetch data!')
   //   }, 50)
   // })
+}
+
+export const updateMovie = (movie) => {
+  return axios.patch(`${BASE_URL}/api/v1/movies/${movie.id}`, movie)
+    .then(res => res.data)
 }
 
 export const getMovieById = (id) => {
